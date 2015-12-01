@@ -1,6 +1,6 @@
 $(document).ready(function() {
   window.dancers = [];
-
+  window.rainbows = [];
   $(".addDancerButton").on("click", function(event) {
     var dancerMakerFunctionName = $(this).data("dancer-maker-function-name");
     var dancerMakerFunction = window[dancerMakerFunctionName];
@@ -18,7 +18,7 @@ $(document).ready(function() {
       width,
       Math.random() * 1000
     );
-    $('body').append(dancer.$node);
+    $('.content').append(dancer.$node);
     window.dancers.push(dancer);
   });
 
@@ -37,17 +37,17 @@ $(document).ready(function() {
   });
 
   $('.rainbowfyTitle').on('click', function(event){
-    var image = window.dancers[0];
-    var height = $("body").height() * Math.random();
-    var width = $("body").width() * Math.random();
-    
-    var rainbowfyFunction = window['rainbowfy'];
-    var rainbow = new rainbowfyFunction(
-      height,
-      width,
-      Math.random() * 1000
-    );
-    $('body').append(rainbow.$node);
+    for (var i=0; i< window.dancers.length; i++){
+      var rainbow = window.dancers[i].addRainbow();
+      window.rainbows.push(rainbow);
+      $('.content').append(rainbow.$node);
+    }
+  });
+
+  $('.clearButton').on('click', function(event) {
+    $('.content').empty();
+    window.dancers=[];
+    window.rainbows=[];
   });
 
 });

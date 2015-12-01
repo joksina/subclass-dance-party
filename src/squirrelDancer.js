@@ -10,3 +10,11 @@ squirrelDancer.prototype.construct = squirrelDancer;
 squirrelDancer.prototype.step = function() {
   makeDancer.prototype.step.call(this);
 };
+
+squirrelDancer.prototype.addRainbow = function(){
+  return new rainbowfy(
+    this.top+50,
+    this.left+15,
+    Math.random() * 1000
+  );
+};

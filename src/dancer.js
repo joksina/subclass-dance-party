@@ -31,3 +31,11 @@ makeDancer.prototype.lineUp = function(height, positon, lineNumber) {
   var _height = 110;
   this.setPosition((height / 2 - 100) + (lineNumber * _height), _width * positon);
 };
+
+makeDancer.prototype.addRainbow = function(){
+  return new rainbowfy(
+    this.top,
+    this.left,
+    Math.random() * 1000
+  );
+};

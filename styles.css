@@ -47,6 +47,11 @@ body, a:link, a:visited, a:active{
   width: 50px;
 }
 
+.box:hover {
+  background: red;
+  border-radius: 40%;
+}
+
 .doggy{
   background:url(images/doggyImage.gif) no-repeat top left;
   position: absolute;
@@ -76,3 +81,10 @@ body, a:link, a:visited, a:active{
   filter: FlipH;
   -ms-filter: "FlipH";
 }
+
+.clearButton {
+  padding:5px 12px;
+  float:left;
+  background-color: #996699;
+}
+
