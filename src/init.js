@@ -4,9 +4,18 @@ $(document).ready(function() {
   $(".addDancerButton").on("click", function(event) {
     var dancerMakerFunctionName = $(this).data("dancer-maker-function-name");
     var dancerMakerFunction = window[dancerMakerFunctionName];
+    var height = $("body").height() * Math.random();
+    var width = $("body").width() * Math.random();
+    if (height + 242 > $("body").height()) {
+      height = height - 242;
+    }
+    if (width + 242 > $("body").width()) {
+      width = width - 242;
+    }
+
     var dancer = new dancerMakerFunction(
-      $("body").height() * Math.random(),
-      $("body").width() * Math.random(),
+      height,
+      width,
       Math.random() * 1000
     );
     $('body').append(dancer.$node);
