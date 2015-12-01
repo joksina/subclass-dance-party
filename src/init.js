@@ -52,16 +52,49 @@ $(document).ready(function() {
 
   $('.circleUpButton').on('click', function(event){
     var angle = 0;
-    var radius = 300;
-    var cx = $("body").height()/2;
-    var cy = $("body").width()/2;
     for (var i = 0; i < window.dancers.length; i++) {
-      var x = cx + radius * Math.cos(angle);
-      var y = cx + radius * Math.sin(angle);
+      var x = calculateX(angle);
+      var y = calculateY(angle);
       window.dancers[i].setPosition(x - 150, y + 200);
+      window.dancers[i].angle = angle;
       angle += 10;
     }
   });
+
+  var calculateX = function(angle) {
+    var radius = 300;
+    var cx = $("body").height()/2;
+    var x = cx + radius * Math.cos(angle);
+    return x;
+  }
+
+  var calculateY = function(angle) {
+    var radius = 300;
+    var cy = $("body").height()/2;
+    var y = cy + radius * Math.sin(angle);
+    return y;
+  }
+
+  addEventListener("keydown", function(e) { 
+    if (e.keyCode === 37) {
+      console.log('left');
+      for (var i = 0; i < window.dancers.length; i++) {
+        window.dancers[i].angle-=10;
+        var angle = window.dancers[i].angle;
+        var x = calculateX(angle);
+        var y = calculateY(angle);
+        window.dancers[i].setPosition(x - 150, y + 200);
+      }
+    } else if (e.keyCode === 39) {
+      for (var i = 0; i < window.dancers.length; i++) {
+        window.dancers[i].angle+=10;
+        var angle = window.dancers[i].angle;
+        var x = calculateX(angle);
+        var y = calculateY(angle);
+        window.dancers[i].setPosition(x - 150, y + 200);
+      }
+    }
+  }, false);
 
 });
 

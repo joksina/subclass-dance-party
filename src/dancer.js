@@ -10,6 +10,7 @@ var makeDancer = function(top, left, timeBetweenSteps) {
   this.setPosition(top, left);
   this.top = top;
   this.left = left;
+  this.angle = 0;
 };
 
 makeDancer.prototype.step = function(){
@@ -23,6 +24,8 @@ makeDancer.prototype.setPosition = function(top, left) {
     top: top,
     left: left
   };
+  this.top = top;
+  this.left = left;
   this.$node.css(styleSettings);
 };
 
