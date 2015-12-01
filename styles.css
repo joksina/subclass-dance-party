@@ -55,3 +55,12 @@ body, a:link, a:visited, a:active{
   height: 130px;
   width: 115px;
 }
+
+.doggy:hover, .cat:hover, .squirrel:hover{
+  -moz-transform: scaleX(-1);
+  -o-transform: scaleX(-1);
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+  filter: FlipH;
+  -ms-filter: "FlipH";
+}
