@@ -3,7 +3,10 @@ body, html{
 }
 body{
   margin: 0px;
-  background-color:#444;
+  /*background-color:#444;*/
+  /*background-image: "images/nyanBackground.gif";*/
+  background-image: url('images/nyanBackground.gif');
+  /*background-size: cover;*/
   font-size: 18px;
 }
 body, a:link, a:visited, a:active{
@@ -44,4 +47,11 @@ body, a:link, a:visited, a:active{
   position: absolute;
   height: 200px;
   width: 200px;
+}
+
+.squirrel{
+  background:url(images/squirrelImage.gif) no-repeat top left;
+  position: absolute;
+  height: 130px;
+  width: 115px;
 }
