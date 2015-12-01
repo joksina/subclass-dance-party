@@ -23,8 +23,16 @@ $(document).ready(function() {
   });
 
   $(".lineUpButton").on("click", function(event){
+    var linNumber = 0;
+    var position = 0;
     for (var i=0; i<window.dancers.length; i++){
-      window.dancers[i].lineUp($("body").height(), i);
+      window.dancers[i].lineUp($("body").height(), position, linNumber);
+      if (position*100+242+20 > $("body").width()){
+        linNumber++;
+        position = 0;
+      } else {
+        position++;  
+      }
     }
   });
 
