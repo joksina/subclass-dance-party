@@ -50,5 +50,18 @@ $(document).ready(function() {
     window.rainbows=[];
   });
 
+  $('.circleUpButton').on('click', function(event){
+    var angle = 0;
+    var radius = 300;
+    var cx = $("body").height()/2;
+    var cy = $("body").width()/2;
+    for (var i = 0; i < window.dancers.length; i++) {
+      var x = cx + radius * Math.cos(angle);
+      var y = cx + radius * Math.sin(angle);
+      window.dancers[i].setPosition(x - 150, y + 200);
+      angle += 10;
+    }
+  });
+
 });
 
