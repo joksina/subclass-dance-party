@@ -76,18 +76,13 @@ $(document).ready(function() {
   }
 
   addEventListener("keydown", function(e) { 
-    if (e.keyCode === 37) {
-      console.log('left');
+    if (e.keyCode === 37 || e.keyCode === 39) {
       for (var i = 0; i < window.dancers.length; i++) {
-        window.dancers[i].angle-=10;
-        var angle = window.dancers[i].angle;
-        var x = calculateX(angle);
-        var y = calculateY(angle);
-        window.dancers[i].setPosition(x - 150, y + 200);
-      }
-    } else if (e.keyCode === 39) {
-      for (var i = 0; i < window.dancers.length; i++) {
-        window.dancers[i].angle+=10;
+        if (e.keyCode === 37) {
+          window.dancers[i].angle-=10;
+        } else if (e.keyCode === 39) {
+          window.dancers[i].angle+=10;
+        }
         var angle = window.dancers[i].angle;
         var x = calculateX(angle);
         var y = calculateY(angle);
